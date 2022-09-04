@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo "$secrets.DOCKER_PASSWORD"
-      - run: echo "$secrets.DOCKER_USERNAME"
-      - run: echo "$secrets.DOCKER_PASSWORD" | docker login -u "$secrets.DOCKER_USERNAME" --password-stdin
+      - run: echo "$DOCKER_PASSWORD"
+      - run: echo "$DOCKER_USERNAME"
+      - run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - run: docker build -t ddytert/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true ddytert/react-test npm test
  
