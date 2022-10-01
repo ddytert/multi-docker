@@ -4,6 +4,7 @@ services:
     image: "ddytert/multi-client"
     mem_limit: 128m
     hostname: client
+    stdin_open: true
   server:
     image: "ddytert/multi-server"
     mem_limit: 128m
